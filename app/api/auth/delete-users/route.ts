@@ -14,7 +14,7 @@ export async function DELETE(req: Request) {
 
 	try {
 		const body = await req.json();
-		const { userIds, status } = body;
+		const { userIds } = body;
 
 		if (
 			!Array.isArray(userIds) ||
