@@ -37,6 +37,7 @@ export async function POST(req: Request) {
 			{ status: 200 }
 		);
 	} catch (error) {
+		console.error(error);
 		return NextResponse.json(
 			{ message: 'Failed to change status' },
 			{ status: 500 }

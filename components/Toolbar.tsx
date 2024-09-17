@@ -13,7 +13,6 @@ import { useRouter } from 'next/navigation';
 import { useToast } from '@/hooks/use-toast';
 import { AlertModal } from './modal/alert-modal';
 import { logout } from '@/lib/server';
-import { BASE_URL_API } from '@/constants';
 
 interface ToolbarProps {
 	currentUser: User;
@@ -38,7 +37,7 @@ const Toolbar = ({
 	const handleBlock = async () => {
 		setBlocking(true);
 		try {
-			const response = await fetch(`${BASE_URL_API}/auth/update-status`, {
+			const response = await fetch('/api/auth/update-status', {
 				method: 'POST',
 				body: JSON.stringify({ userIds: selectedRowsIds, status: 'blocked' }),
 			});
@@ -74,7 +73,7 @@ const Toolbar = ({
 	const handleUnblock = async () => {
 		setUnblocking(true);
 		try {
-			const response = await fetch(`${BASE_URL_API}/auth/update-status`, {
+			const response = await fetch('api/auth/update-status', {
 				method: 'POST',
 				body: JSON.stringify({
 					userIds: selectedRowsIds,
@@ -108,7 +107,7 @@ const Toolbar = ({
 	const handleDelete = async () => {
 		setDeleting(true);
 		try {
-			const response = await fetch(`${BASE_URL_API}/auth/delete-users`, {
+			const response = await fetch('/api/auth/delete-users', {
 				method: 'DELETE',
 				body: JSON.stringify({ userIds: selectedRowsIds }),
 			});
