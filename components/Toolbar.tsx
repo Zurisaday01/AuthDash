@@ -73,7 +73,7 @@ const Toolbar = ({
 	const handleUnblock = async () => {
 		setUnblocking(true);
 		try {
-			const response = await fetch('api/auth/update-status', {
+			const response = await fetch('/api/auth/update-status', {
 				method: 'POST',
 				body: JSON.stringify({
 					userIds: selectedRowsIds,
